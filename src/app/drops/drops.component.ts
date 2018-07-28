@@ -16,18 +16,27 @@ export class DropsComponent implements OnInit {
     message: ''
   } as any;
 
+  noteList;
+
+  isLoading = true;
+
   constructor(
     private db: AngularFireDatabase) {
   }
   ngOnInit() {
     this.db.list('/notes').valueChanges().subscribe(noteList => {
-      const randomNumber = Math.floor((Math.random() * noteList.length));
-      this.randomNote = noteList[randomNumber];
-      console.log('noteList.length', noteList.length);
-      console.log('randomNumber', randomNumber);
-      console.log('noteList[randomNumber]', noteList[randomNumber]);
+      this.noteList = noteList;
+      // console.log('noteList.length', noteList.length);
+      // console.log('randomNumber', randomNumber);
+      // console.log('noteList[randomNumber]', noteList[randomNumber]);
+      this.loadNote();
+      this.isLoading = false;
     });
+  }
 
+  loadNote() {
+    const randomNumber = Math.floor((Math.random() * this.noteList.length));
+    this.randomNote = this.noteList[randomNumber];
   }
 
 }
