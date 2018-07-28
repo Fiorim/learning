@@ -1,10 +1,11 @@
 <div class="jumbotron tip-container">
-  <div class="container">
+  <app-loading *ngIf="isLoading"></app-loading>
+  <div *ngIf="!isLoading" class="container">
     <!--<h2>{{ randomNote.date }} - </h2>-->
     <h1>{{ randomNote.secondaryTag }}</h1>
     <h3>{{ randomNote.primaryTag }}</h3>
     <p>{{ randomNote.message }}</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Next learning</a></p>
+    <button class="btn btn-primary btn-lg" (click)="loadNote()" role="button">Next learning</button>
     <button type="button" class="btn btn-default new-tip-buttom" aria-label="Left Align" [routerLink]="['/register']">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>

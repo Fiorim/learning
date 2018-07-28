@@ -9,6 +9,7 @@ import { DropsComponent } from './drops/drops.component';
 import { environment } from '../environments/environment';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { AppRoutingModule } from './app.routing';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AppRoutingModule } from './app.routing';
     HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
 
   ],
   providers: [],

@@ -5,6 +5,8 @@
     top: 20px;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .new-tip-buttom{
     position: absolute;
